@@ -1,5 +1,7 @@
 // [ ]
 
+using System.Linq;
+
 namespace AlgorithmsTestProject;
 
 public static class ArrayProblems
@@ -21,25 +23,16 @@ public static class ArrayProblems
 
     public static T FirstElement<T>(T[] xs)
     {
-        if (xs.Length == 0)
-            throw new Exception("Array is empty.");
-
         return xs[0];
     }
 
     public static T LastElement<T>(T[] xs)
     {
-        if (xs.Length == 0)
-            throw new Exception("Array is empty.");
-
-        return xs[xs.Length - 1];
+        return xs[^1];
     }
 
     public static T MiddleElement<T>(T[] xs)
     {
-        if (xs.Length == 0)
-            throw new Exception("Array is empty.");
-
         return xs[xs.Length / 2];
     }
 
@@ -77,6 +70,6 @@ public static class ArrayProblems
 
     public static bool HasDuplicates<T>(T[] xs)
     {
-        throw new NotImplementedException();
+        return xs.Length != xs.Distinct().Count();
     }
 }
