@@ -1,7 +1,5 @@
 // [ ]
 
-using System.Linq;
-
 namespace AlgorithmsTestProject;
 
 public static class ArrayProblems
@@ -70,6 +68,6 @@ public static class ArrayProblems
 
     public static bool HasDuplicates<T>(T[] xs)
     {
-        return xs.Length != xs.Distinct().Count();
+        throw new NotImplementedException();
     }
 }
