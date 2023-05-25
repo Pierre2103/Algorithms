@@ -15,7 +15,7 @@ public abstract class BaseArray<T> : IDynamicArray<T>
     {
         var old = _array;
         _array = new T[size];
-        Array.Copy(old, _array, Count);
+        Array.Copy(old, _array, old.Length);
     }
 
     public T this[int index]
@@ -37,7 +37,7 @@ public abstract class BaseArray<T> : IDynamicArray<T>
     public void Insert(int index, T item)
         => throw new NotImplementedException();
     
-    public void Remove(int index)
+    public T Remove(int index)
         => throw new NotImplementedException();
 }
 

@@ -72,10 +72,8 @@ public static class Helper
             Assert.AreEqual(a, b);
             Console.WriteLine($"Sums of first {i} powers of two = {b}");
         }
-
     }
-
-
+        
     [Test]
     public static void TestSumPowersOfTwo()
     {
@@ -84,4 +82,23 @@ public static class Helper
             Console.WriteLine($"Sums of first {i} powers of two = {SumPowersOfTwo(i)}");
         }
     }
+
+    public static void SelectionSort(int[] array)
+    {
+        for (var i = 0; i < array.Length; ++i)
+        {
+            var minIndex = i;
+            for (var j = i + 1; j < array.Length; ++j)
+            {
+                if (array[minIndex] < array[j])
+                    minIndex = j;
+            }
+
+            if (minIndex != i)
+            {
+                ArrayProblems.Swap(array, minIndex, i);
+            }
+        }
+    }
+
 }

@@ -4,12 +4,29 @@
     {
         public static void MySort1(int[] array)
         {
-            throw new NotImplementedException();
+            for (var i = 0; i < array.Length; i++)
+            {
+                for (var j = i + 1; j < array.Length; j++)
+                {
+                    if (array[j] < array[i])
+                    {
+                        ArrayProblems.Swap(array, i, j);
+                    }
+                }
+            }
         }
 
         public static void MySort2(int[] array)
         {
-            throw new NotImplementedException();
+            var current = array.ToList();
+            var result = new List<int>();
+            while (current.Count > 0)
+            {
+                var x = current.Min();
+                result.Add(x);
+                current.Remove(x);
+            }
+            result.CopyTo(array);
         }
 
         public static void MergeSort(int[] array)
@@ -24,26 +41,46 @@
 
         public static void BubbleSort(int[] array)
         {
-            int n = array.Length;
-            bool swapped;
+            // int n = array.Length;
+            // bool swapped;
 
-            for (int i = 0; i < n - 1; i++)
+            // for (int i = 0; i < n - 1; i++)
+            // {
+            //     swapped = false;
+
+            //     for (int j = 0; j < n - i - 1; j++)
+            //     {
+            //         if (array[j] > array[j + 1])
+            //         {
+            //             int temp = array[j];
+            //             array[j] = array[j + 1];
+            //             array[j + 1] = temp;
+            //             swapped = true;
+            //         }
+            //     }
+            //     if (!swapped)
+            //         break;
+            // }
+
+            
+            bool swapped;
+            var n = array.Length;
+            do
             {
                 swapped = false;
 
-                for (int j = 0; j < n - i - 1; j++)
+                for (var i = 1; i < n; ++i)
                 {
-                    if (array[j] > array[j + 1])
+                    if (array[i - 1] > array[i])
                     {
-                        int temp = array[j];
-                        array[j] = array[j + 1];
-                        array[j + 1] = temp;
+                        ArrayProblems.Swap(array, i-1, i);
                         swapped = true;
                     }
                 }
-                if (!swapped)
-                    break;
-            }
+
+                --n;
+            } 
+            while (swapped && n > 0);
         }
 
 
@@ -209,6 +246,15 @@
         public static void EvilSort(int[] array)
         {
             Array.Fill(array, 0);
+        }
+
+        public static void GnomeSort(int[] array)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static void SelectionSort(int[] array)
+        {
         }
     }
 }
